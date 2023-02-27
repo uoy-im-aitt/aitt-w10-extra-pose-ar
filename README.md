@@ -43,3 +43,9 @@ In this final task, you should implement a simplified version of this interactio
 2. If this ball collides with the Pokémon, then the model should disappear
 3. If this ball does not collide with the Pokémon, then the user should be offered another go
 4. You can use the ```Pokeball.obj``` model when implementing this interaction (found in ```Assets/PracticalAssets```). You should use the ```Input.GetTouch``` method to process touch events when completing this task (https://docs.unity3d.com/ScriptReference/Input.GetTouch.html).
+
+## Optional Extension
+
+If you complete all of the above tasks before the end of the practical, or would like to continue to develop your skills in your free study time, then you should consider experimenting with some of the following tasks:
+
+Extend the interaction you implemented in task 5 so that the direction and distance of the Pokéballs thrown depends on how the user swipes their finger on the screen (see https://docs.unity3d.com/ScriptReference/Input.GetTouch.html to get additional information about a touch interaction that could be used to implement this).
