@@ -8,7 +8,7 @@ To get started, make a copy of this git repository in your personal GitHub accou
 
 In the lecture we learned about a range of techniques for displaying digital content over the real world in AR experiences. Today, you are going to implement an AR experience using the Mobile Device Overlay technique. You should recall that this technique displays digital content over the real world by overlaying it onto a camera image that’s shown on the screen of a mobile device.
 
-To implement this display technique in Unity, we first need to display a camera image in a Unity scene. Unity allows us to grab an image from a device’s camera and display it onto a ```RawImage UI``` component. You can create a simple app that displays a camera image in full screen (what we need) by completing following steps:
+To implement this display technique in Unity, we first need to display a camera image in a Unity scene. Unity allows us to grab an image from a device’s camera and display it onto a ```RawImage``` UI component. You can create a simple app that displays a camera image in full screen (what we need) by completing following steps:
 
 1. Create a UI Canvas containing a ```RawImage``` component. This component should have its ```RectTransform``` configured so that it is stretched to fill the whole of the screen.
 2. Add the script ```WebcamRender.cs``` (found in ```Assets/PracticalAssets```) to the GameObject containing the ```RawImage``` component. This instructs Unity to render the image from the device’s camera onto your RawImage (take a look at the code – it’s pretty simple).
@@ -29,6 +29,17 @@ Once you’ve done this, build and run your screen on your Android tablet. You s
 
 The problem with the experience we’ve created so far is that the Pokémon model is always positioned in the middle of he camera image. It would be nice if we could make the Pokémon remain in the same position in the world when we move the camera, to give a sense that its actually inhabiting the space. We saw a technique in the lecture to achieve this using the pose sensor available in the device. By orienting the virtual camera that’s used to render the Pokémon based on the orientation of the device, we can make it appear to remain in (roughly) the same position in space when the camera moves.
 
-In this task, you should implement this basic registration approach in Unity by Adding the Devicepose.cs script (found in Assets/PracticalAssets) onto the MainCamera game object. Before doing this, open up the script and look at how it works. You can see that it simply uses the orientation of the device from the gyro to control the rotation of the camera, and then applies a couple of additional rotations to make the orientation align with the camera image.
+In this task, you should implement this basic registration approach in Unity by Adding the Devicepose.cs script (found in ```Assets/PracticalAssets```) onto the ```MainCamera``` game object. Before doing this, open up the script and look at how it works. You can see that it simply uses the orientation of the device from the gyro to control the rotation of the camera, and then applies a couple of additional rotations to make the orientation align with the camera image.
 
 Once you’ve done this, build and run your screen on your Android tablet. Hold up the device and rotate it to point in different directions until you find the Pokémon. Once you’ve found the Pokémon make some relatively small changes to the orientation of the device and observe how the Pokémon remains in (roughly) the same position in space.
+
+## Task 4: Gotta Catch ‘Em All!
+
+In the game Pokémon Go AR isn’t just used to look at 3D models of Pokémon. Rather you can catch them by flicking balls (Pokéballs) at their position on the screen. When a ball hits a Pokémon, its caught.
+
+In this final task, you should implement a simplified version of this interaction for the scene you created in tasks 1-3. This interaction should offer the user the following behavior:
+
+1. When the user touches on the screen fire a red ball in the direction the camera is pointing
+2. If this ball collides with the Pokémon, then the model should disappear
+3. If this ball does not collide with the Pokémon, then the user should be offered another go
+4. You can use the ```Pokeball.obj``` model when implementing this interaction (found in ```Assets/PracticalAssets```). You should use the ```Input.GetTouch``` method to process touch events when completing this task (https://docs.unity3d.com/ScriptReference/Input.GetTouch.html).
